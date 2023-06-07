@@ -1,5 +1,7 @@
 package org.kafka.example;
 
+import org.apache.kafka.common.config.TopicConfig;
+import org.apache.kafka.common.protocol.Message;
 import org.kafka.example.config.AppConfig;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -16,8 +18,11 @@ public class HelloProducer {
 
     public static void main(String[] args) {
 
-        System.out.println("Creating Kafka Producer...");
+        System.out.println("Creating Kafka Producer1...");
         logger.info("Creating Kafka Producer...");
+
+//        TopicConfig.MESSAGE_TIMESTAMP_TYPE_CONFIG()
+//        ProducerConfig.BUFFER_MEMORY_CONFIG();
 
         Properties props = new Properties();
         props.put(ProducerConfig.CLIENT_ID_CONFIG, AppConfig.applicationID);
@@ -30,6 +35,7 @@ public class HelloProducer {
         logger.info("Start sending messages...");
         for (int i = 1; i <= AppConfig.numEvents; i++) {
             producer.send(new ProducerRecord<>(AppConfig.topicName, i, "Simple Message-" + i));
+            System.out.println("Creating Kafka Producer1...");
         }
 
         logger.info("Finished - Closing Kafka Producer.");
