@@ -1,1 +1,1 @@
-kafka-topics --bootstrap-server localhost:9092 --topic hello-producer-topic --create --partitions 5 --replication-factor 3
+kafka-topics --bootstrap-server localhost:9092 --topic hello-producer-topic3 --create --partitions 5 --replication-factor 2
