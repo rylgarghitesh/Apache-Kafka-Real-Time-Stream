@@ -1,0 +1,1 @@
+kafka-topics --bootstrap-server localhost:9092 --topic hello-producer-4 --create --partitions 5 --replication-factor 2 --config min.insync.replicas=2
